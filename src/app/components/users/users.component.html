@@ -1,0 +1,36 @@
+<h2>Users</h2>
+<!--<button [disabled]="!enableAdd" class="btn btn-block mb-3" [ngClass]="currentClasses">Add New User</button> [ngClass] usage-->
+<!--
+(click) = event example
+[disabled] = 
+-->
+<button (click)="adduser($event)" [disabled]="!enableAdd" class="btn btn-block mb-3">Add New User</button>
+
+<ul class="list-unstyled" *ngIf="loaded && users?.length > 0"> 
+    <!-- <ul *ngIf="users.length > 0; else noUsers"> -->
+  <!--<li class="card card-body mb-2" *ngFor="let user of users" [class.bg-light]="user.isActive" [style.border-color]="user.isActive ? 'green':'' " >-->
+  <li class="card card-body mb-2" *ngFor="let user of users" [class.bg-light]="user.isActive"> <!-- class & style binding -->
+    <!--<div class="row">-->
+      <!--<div class="col-sm-4">-->
+        <!-- <img *ngIf="user.image" class="img-fluid" [src]="user.image" alt=""> another way to bind -->
+        <!-- <img *ngIf="user.image" class="img-fluid" src="{{user.image}}" alt=""> anotehr way to bind -->
+        <!--<img *ngIf="user.image" class="img-fluid" bind-src="user.image" alt="">-->
+      <!--</div>-->
+      <!--<div class="col-sm-8">-->
+          <!--<h3 [ngStyle]="currentStyles"> [ngStyle] usage-->
+          <h3 [ngStyle]="currentStyles">{{user.firstName}} {{user.lastName}}</h3> <!--currentStyles is a function() see component, PIPES | uppercase, lowercase  -->
+          <ul class="list-group" *ngIf ="showExtended && user.age && user.address"><!-- since age and address is optional we need to add checking if age and address has value, see showExtended value  -->
+            <li class="list-group-item">Age: {{user.age}}</li>
+            <li class="list-group-item">Address: {{user.address.street}} {{user.address.city}}, {{user.address.state}}</li>
+            <!--<li class="list-group-item">Balance: {{user.balance | currency:"HKD"}} until {{.5 | percent}}</li>-->
+            <li class="list-group-item">Joined: {{user.registered | date }} <!--OTHER formats: "shortDate", "longDate", "fullDate", "shortTime" etc...  --></li>
+            <!--<li class="list-group-item" ngNonBindable>Static Data: {{5 | number:"2.4" }} static data,  ngNonBindable=>no string interpolation, shows the code as it is </li>-->
+          </ul>
+      <!--</div>-->
+    <!--</div>-->   
+  </li>
+</ul>
+<h4 *ngIf="users?.length==0">No users found!</h4>
+<h4 *ngIf="!loaded">Loading Users...</h4>
+
+<!-- <ng-template #noUsers><h4>No Users found!</h4></ng-template> -->

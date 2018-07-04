@@ -1,0 +1,65 @@
+*********************
+INSTALL
+********************
+$ sudo apt-get install git 	//install git on Linux
+git-scm.com	//install on windows
+
+$git init 				//initialize local git repository
+
+$git config --global user.name 'Teddy Romulo'
+
+$git config --global user.email 'teddyromulo@lexibook.com'
+
+$git add <FILE> 			//add file(s) to index
+
+$git add .				//add all files
+
+$touch .gitignore 			//will create ignore file 
+- open .gitignore  and add files and 
+directory to ignore (one item per line)
+ignorefile.txt
+/ignoredirectory1
+/ignoredirectory2
+
+$git branch BRANCHNAME		// Create branch
+
+$git checkout BRANCHNAME	// Switch to branch
+
+$git checkout master 		// Switch to master branch
+
+$git merge BRANCHNAME		// While in the master git merge  BRANCHNAME to merge the files.
+
+$git status			// Check status of working tree
+
+$git commit -m 'message text'	// Commit changes to Index with message
+
+$git rm --cached <FILE> 		// Remove file from staging area
+
+$git remote 			// check if there remote repo already initialized/connected
+				// it will say "origin" if there is a Remote Repo
+
+$git remote add origin <GITHUB URL>	//add remote repository
+
+$git push -u origin master		// Will push all files to Remote Repo
+				// It will prompt for login to validate credentials
+				// Files should show up in the Remote repo after this command
+
+$git push				// Push files to Remote Repository	
+
+$git pull 				// Pull Latest From Remote Repository
+
+$git clone <GITHUB URL>		// Clone Repository Into A New Directory
+
+$touch <FILE>			// Create file in local repo
+
+
+
+
+
+
+
+
+
+
+
+ 
